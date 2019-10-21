@@ -5,7 +5,8 @@ const message_types = {
   welcome: "welcome",
   ping: "ping",
   confirmation: "confirm_subscription",
-  rejection: "reject_subscription"
+  rejection: "reject_subscription",
+  disconnect: "disconnect"
 };
 
 class ActionCable {
@@ -70,6 +71,7 @@ class ActionCable {
     let sub = this.subscriptions[identifier.channel]
 
     switch(type) {
+      case message_types.disconnect:
       case message_types.welcome:
         break;
       case message_types.ping:
