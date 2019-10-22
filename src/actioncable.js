@@ -82,6 +82,7 @@ class ActionCable {
         break;
       case message_types.rejection:
         sub.callbacks.rejected();
+        delete this.subscriptions[identifier.channel];
         break;
       default:
         sub.callbacks.received(message);
